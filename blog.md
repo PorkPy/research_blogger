@@ -1,18 +1,19 @@
 ---
-   layout: default
-   title: Blog
-   permalink: /blog/
-   ---
+layout: page
+title: Blog
+permalink: /blog/
+---
 
-   # Blog Posts
+# Blog Posts
 
-   {% raw %}
-   {% for post in site.posts %}
-     <article>
-       <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-       <time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date_to_long_string }}</time>
-       {{ post.excerpt }}
-     </article>
-   {% endfor %}
-   {% endraw %}
-   
+{% raw %}
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+      <p>{{ post.date | date: "%B %d, %Y" }}</p>
+      {{ post.excerpt }}
+    </li>
+  {% endfor %}
+</ul>
+{% endraw %}
