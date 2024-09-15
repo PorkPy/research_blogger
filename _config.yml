@@ -1,7 +1,7 @@
 theme: minima
 title: "Your Blog Title"
 description: "A blog powered by GitHub Pages and OpenAI"
-permalink: /blog/:year/:month/:day/:title/
-baseurl: ""
+baseurl: "/research_blogger"
 url: "https://porkpy.github.io"
+permalink: /:year/:month/:day/:title/
 future: true
