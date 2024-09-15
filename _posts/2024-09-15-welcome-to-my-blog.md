@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Welcome to My Blog"
-date: YYYY-MM-DD 12:00:00 +0000
+date: 2024-09-15 12:00:00 +0000
 categories: [general, welcome]
 ---
 
