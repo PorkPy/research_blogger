@@ -1,6 +1,6 @@
-theme: jekyll-theme-minimal
+theme: minima
 title: "Your Blog Title"
 description: "A blog powered by GitHub Pages and OpenAI"
 permalink: /blog/:year/:month/:day/:title/
 baseurl: ""
-url: "https://porkpy.github.io/research_blogger/"  # Replace with your actual GitHub Pages URL
+url: "https://porkpy.github.io"
