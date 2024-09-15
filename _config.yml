@@ -4,3 +4,4 @@ description: "A blog powered by GitHub Pages and OpenAI"
 permalink: /blog/:year/:month/:day/:title/
 baseurl: ""
 url: "https://porkpy.github.io"
+future: true
