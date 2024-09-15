@@ -1,3 +1,8 @@
-# Welcome to my GitHub Pages site
+---
+   layout: default
+   title: Home
+   ---
 
-This is my new website powered by GitHub Pages.
+   # Welcome to My GitHub Pages Site
+
+   This is the home page of my site. Check out my [blog](/blog) for the latest posts!
