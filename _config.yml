@@ -1,12 +1,4 @@
 theme: jekyll-theme-minimal
-   title: Your Blog Title
-   description: A blog powered by GitHub Pages and OpenAI
-   
-   # Blog post settings
-   permalink: /blog/:year/:month/:day/:title/
-   
-   # Optional: Add plugins if needed
-   plugins:
-     - jekyll-feed
-     - jekyll-sitemap
-     
+title: "Your Blog Title"
+description: "A blog powered by GitHub Pages and OpenAI"
+permalink: /blog/:year/:month/:day/:title/
