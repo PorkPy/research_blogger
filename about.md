@@ -1,10 +1,8 @@
 ---
 layout: page
-title: Blog
-permalink: /blog/
+title: Automated Research Paper Summarization and Social Media Sharing: A Data Science Project
+permalink: /about/
 ---
-
-# Automated Research Paper Summarization and Social Media Sharing: A Data Science Project
 
 In today's fast-paced world of scientific research, staying up-to-date with the latest findings can be challenging. As a data scientist, I saw an opportunity to bridge this gap by creating an automated system that fetches the latest research papers, summarizes them, and shares the insights on social media. This project not only demonstrates the power of automation in disseminating scientific knowledge but also showcases the integration of various APIs and technologies.
 
