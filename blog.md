@@ -128,6 +128,7 @@ This project demonstrates the power of combining various APIs and AI technologie
 By automating the process of summarizing and sharing research papers, we're not only saving time but also making scientific knowledge more accessible to a broader audience. This project serves as a testament to how data science can bridge the gap between complex academic research and public understanding.
 
 The code for this project is available on my GitHub repository, and I welcome any feedback or contributions to further improve this automation pipeline.
+Thanks.
 
 ---
 
