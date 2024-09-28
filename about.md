@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Automated Research Paper Summarization Blog and Social Media Sharing
+title: Automated Research Paper Summarisation Blog and Social Media Sharing
 permalink: /about/
 ---
 
