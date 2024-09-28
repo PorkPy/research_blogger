@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Automated Research Paper Summarization and Social Media Sharing: A Data Science Project
+title: Automated Research Paper Summarization Blog and Social Media Sharing
 permalink: /about/
 ---
 
