@@ -132,4 +132,4 @@ Thanks.
 
 ---
 
-You can find the full code for this project on my GitHub repository: [https://github.com/PorkPy/research_blogger/blob/main/code/research_blogger_example.ipynb](#)
+You can find the full code for this project on my GitHub repository: [GitHub Repository](https://github.com/PorkPy/research_blogger/blob/main/code/research_blogger_example.ipynb)
