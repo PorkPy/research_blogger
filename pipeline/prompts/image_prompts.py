@@ -268,6 +268,7 @@ def generate_image_prompt(paper):
         "domain": domain,
         "techniques": techniques[:2] if techniques else [],
         "applications": applications[:1] if applications else [],
+        "concepts": techniques[:2] + applications[:1],  # Added this line
         "is_theoretical": is_theoretical
     }
     
