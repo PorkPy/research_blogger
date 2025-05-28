@@ -101,3 +101,47 @@ def format_threads_post(text, blog_post_url, paper_category=None):
             full_post = f"{truncated_text}\n\n{hashtags}\n\nRead more: {blog_post_url}"
     
     return full_post
+
+def post_to_threads(text, image_url, access_token, user_id, blog_post_url, initial_wait=30, max_retries=3):
+    """
+    Post content to Threads with image
+    """
+
+    # Format the full post with hashtags and link
+    full_post = format_threads_post(text, blog_post_url)
+    
+    for attempt in range(max_retries):
+        try:
+            # Step 1: Create media container
+            container = create_media_container(access_token, user_id, full_post, image_url)
+            if container is None or 'id' not in container:
+                print("Failed to create media container.")
+                return False
+
+            container_id = container['id']
+            print(f"Media container created with ID: {container_id}")
+
+            # Wait before publishing
+            print(f"Waiting {initial_wait} seconds before publishing...")
+            time.sleep(initial_wait)
+
+            # Step 2: Publish the thread
+            publish_result = publish_thread(access_token, user_id, container_id)
+            if publish_result is None or 'id' not in publish_result:
+                print("Failed to publish thread.")
+                return False
+
+            print(f"Successfully posted to Threads with ID: {publish_result['id']}")
+            return True
+
+        except Exception as e:
+            print(f"Error posting to Threads: {e}")
+            
+            if attempt < max_retries - 1:
+                print(f"Retrying in {initial_wait} seconds...")
+                time.sleep(initial_wait)
+            else:
+                print("Max retries reached. Failed to post to Threads.")
+                return False
+
+    return False
