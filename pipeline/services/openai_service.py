@@ -61,10 +61,9 @@ def generate_ai_image(paper):
             model=IMAGE_MODEL,
             prompt=prompt,
             n=1,
-            size=IMAGE_SIZE,
-            quality=IMAGE_QUALITY,
-            style=IMAGE_STYLE
+            size=IMAGE_SIZE
         )
+
         
         image_url = response.data[0].url
         print("✅ DALL-E 3 image generated successfully!")
@@ -90,7 +89,6 @@ def generate_ai_image(paper):
                 prompt=simple_prompt,
                 n=1,
                 size=IMAGE_SIZE,
-                quality=IMAGE_QUALITY
             )
             
             image_url = response.data[0].url
