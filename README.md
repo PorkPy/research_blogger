@@ -1,9 +1,9 @@
-#🧠 Automated arXiv Research Blog Generator
+# 🧠 Automated arXiv Research Blog Generator
 
 Description
 This project is an automated content pipeline that monitors arXiv for new research papers and generates structured, visually enriched blog posts for technical content sharing. The system intelligently detects and tracks previously processed papers, ensuring that only fresh, relevant content is published.
 
-#✨ Key Features
+# ✨ Key Features
 🔍 Automated Paper Discovery
 Integrates with the arXiv API to retrieve the latest research papers by category and time window.
 
