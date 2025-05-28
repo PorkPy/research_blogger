@@ -3,7 +3,7 @@
 def load_secrets():
     """Load secrets from secrets_config.py file"""
     try:
-        from secrets_config import (
+        from research_blogger.code.secrets_config import (
             FACEBOOK_ID,
             INSTAGRAM_ACCESS_TOKEN, 
             THREADS_USER_ID,
