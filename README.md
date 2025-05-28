@@ -60,6 +60,8 @@ Successfully posted to Threads with ID: 18145788115384311
 Successfully posted to Threads with image!
 ```
 
- Live Blog
+🌐 Live Blog
 ➡️ View Latest Posts
+
+
 
