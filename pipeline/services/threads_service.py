@@ -47,51 +47,57 @@ def publish_thread(access_token, user_id, creation_id):
             print(f"Response content: {e.response.text}")
         return None
 
-def post_to_threads(text, image_url, access_token, user_id, blog_post_url, hashtags=THREADS_HASHTAGS, initial_wait=30, max_retries=3):
+def format_threads_post(text, blog_post_url, paper_category=None):
     """
-    Post content to Threads with image
+    Format the Threads post with the appropriate hashtags and link
     """
-    # Format the full post with hashtags and link
+    # Base hashtag that will be clickable (only use one primary hashtag)
+    primary_hashtag = "#AI"
+    
+    # Additional non-clickable hashtags based on category
+    secondary_hashtags = "#ArtificialIntelligence #Research #Science"
+    
+    # Add a domain-specific hashtag if category is provided
+    if paper_category:
+        category_hashtags = {
+            "cs.AI": "#MachineLearning",
+            "cs.LG": "#DeepLearning",
+            "cs.CL": "#NLP",
+            "cs.CV": "#ComputerVision",
+            "stat.ML": "#MachineLearning"
+            # Add more categories as needed
+        }
+        domain_tag = category_hashtags.get(paper_category, "#TechResearch")
+        hashtags = f"{primary_hashtag} {domain_tag} {secondary_hashtags}"
+    else:
+        hashtags = f"{primary_hashtag} {secondary_hashtags}"
+    
+    # Format the full post
     full_post = f"{text}\n\n{hashtags}\n\nRead more: {blog_post_url}"
     
     # Make sure it doesn't exceed Threads limit (500 chars)
     if len(full_post) > 500:
-        available_chars = 500 - len(hashtags) - len(blog_post_url) - 15
-        truncated_text = text[:available_chars-3] + "..."
-        full_post = f"{truncated_text}\n\n{hashtags}\n\nRead more: {blog_post_url}"
-    
-    for attempt in range(max_retries):
-        try:
-            # Step 1: Create media container
-            container = create_media_container(access_token, user_id, full_post, image_url)
-            if container is None or 'id' not in container:
-                print("Failed to create media container.")
-                return False
-
-            container_id = container['id']
-            print(f"Media container created with ID: {container_id}")
-
-            # Wait before publishing
-            print(f"Waiting {initial_wait} seconds before publishing...")
-            time.sleep(initial_wait)
-
-            # Step 2: Publish the thread
-            publish_result = publish_thread(access_token, user_id, container_id)
-            if publish_result is None or 'id' not in publish_result:
-                print("Failed to publish thread.")
-                return False
-
-            print(f"Successfully posted to Threads with ID: {publish_result['id']}")
-            return True
-
-        except Exception as e:
-            print(f"Error posting to Threads: {e}")
+        # Prioritize keeping the title intact (typically in the first line)
+        first_line_end = text.find('\n')
+        if first_line_end > 0:
+            title = text[:first_line_end].strip()
+            remaining = text[first_line_end:].strip()
             
-            if attempt < max_retries - 1:
-                print(f"Retrying in {initial_wait} seconds...")
-                time.sleep(initial_wait)
+            # Calculate available space
+            available_chars = 500 - len(hashtags) - len(blog_post_url) - len(title) - 20
+            
+            if available_chars > 30:
+                truncated_text = remaining[:available_chars-3] + "..."
+                full_post = f"{title}\n\n{truncated_text}\n\n{hashtags}\n\nRead more: {blog_post_url}"
             else:
-                print("Max retries reached. Failed to post to Threads.")
-                return False
-
-    return False
+                # Emergency truncation
+                available_chars = 500 - len(hashtags) - len(blog_post_url) - 15
+                truncated_text = text[:available_chars-3] + "..."
+                full_post = f"{truncated_text}\n\n{hashtags}\n\nRead more: {blog_post_url}"
+        else:
+            # No line break found, just truncate
+            available_chars = 500 - len(hashtags) - len(blog_post_url) - 15
+            truncated_text = text[:available_chars-3] + "..."
+            full_post = f"{truncated_text}\n\n{hashtags}\n\nRead more: {blog_post_url}"
+    
+    return full_post
