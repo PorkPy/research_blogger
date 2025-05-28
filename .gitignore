@@ -1,6 +1,6 @@
 # Secrets and API keys - MOST IMPORTANT!
-code/secrets_config.py
-code/config_secrets.py
+pipeline/secrets_config.py
+pipeline/config_secrets.py
 *.env
 .env
 .env.local
